@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "SoundTest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SoundTest</h2>
+<h1>GeeksforGeeks</h1>
+<b>Notification Sound</b>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"></script>*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
+<body>
+    <h1>GeeksforGeeks</h1>
+    <b>Notification Sound</b>
+    <br>
+    <input type="button" id="play" value="ClickMe" />
+    <audio controls="controls">
+        <source src="~/audio/PinkPanther30.wav" />
+    </audio>
+
+
+</body>
+<script>
+    var options = {
+        "preventDuplicates": true,
+        "timeOut": 1000
+    };
+    toastr.options = options;
+    toastr.warning('this is the message', 'Warning: ');
+    var audio = new Audio("https://file-examples.com/storage/fe4658769b6331540b05587/2017/11/file_example_WAV_1MG.wav");
+        audio.play();
+    $(document).ready(function () {
+        setInterval(function () {
+            window.location.reload(1);
+        }, 3000)
+        $("#play").click(function () {
+            alert("Hello");
+            /* Audio link for notification */
+            var audio = new Audio("https://file-examples.com/storage/fe4658769b6331540b05587/2017/11/file_example_WAV_1MG.wav");
+            audio.play();
+        });
+    });
+</script>
